@@ -46,16 +46,16 @@ Functor Expr where
   map func (Div x y) = Div (map func x) (map func y)
   map func (Abs x) = Abs (map func x)
 
-data Vec : Nat -> Type -> Type where
-  Nil : Vec Z a
-  (::) : (x : a) -> (xs : Vec k a) -> Vec (S k) a
+data Vect : Nat -> Type -> Type where
+  Nil : Vect Z a
+  (::) : (x : a) -> (xs : Vect k a) -> Vect (S k) a
 
-%name Vec xs, ys, zs
+%name Vect xs, ys, zs
 
-Eq a => Eq (Vec n a) where
+Eq a => Eq (Vect n a) where
   (==) [] [] = True
   (==) (x :: xs) (y :: ys) = (x == y) && (xs == ys)
 
-Foldable (Vec n) where
+Foldable (Vect n) where
   foldr func acc [] = acc
   foldr func acc (x :: xs) = func x (foldr func acc xs)
