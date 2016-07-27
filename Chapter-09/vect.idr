@@ -6,6 +6,7 @@ maryInVector : Elem "Mary" ["Peter", "Paul", "Mary"]
 maryInVector = There (There Here)
 
 
+public export
 removeElem : (value : a) ->
              (xs : Vect (S n) a) ->
              {auto prf : Elem value xs} ->
